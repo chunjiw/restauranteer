@@ -295,7 +295,7 @@
 				<RestaurantCard
 					href={`/restaurant/${r.uuid}`}
 					name={r.name}
-					subtitle={r.suburb ?? r.address}
+					location={r.suburb}
 					rating={userRating ?? r.rating}
 					photoThumb={userPhoto ? thumbUrl(userPhoto) : null}
 					photoFull={userPhoto ? fullAttachmentUrl(userPhoto) : null}
