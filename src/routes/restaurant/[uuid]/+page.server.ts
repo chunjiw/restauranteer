@@ -107,6 +107,9 @@ export const load: PageServerLoad = async ({ params, url }) => {
 		}
 		};
 	});
+	// The file keeps visits in the order they were added, so a back-dated visit
+	// sits last. Order by date (stable for same-day visits); links use `index`.
+	bodyVisits.sort((a, b) => a.date.localeCompare(b.date));
 	const bodySections = {
 		beforeVisitsHtml: renderMarkdown(removeRestaurantNotesSection(sections.before)),
 		visits: bodyVisits,
